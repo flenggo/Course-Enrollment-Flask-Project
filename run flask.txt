@@ -1,0 +1,6 @@
+cd venv
+cd Scripts
+Activate
+cd..
+cd..
+flask run

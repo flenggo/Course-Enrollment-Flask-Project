@@ -15,7 +15,7 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th scope="col">Course ID</th>
+                        <th scope="col">Course IDsss</th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
                         <th scope="col">Credits</th>
@@ -27,13 +27,14 @@
                     <!-- Construct the rest of courses here -->
                     {% for class in classes %}
                     <tr>
-                        <td scope='row'>{{ class.r2["courseID"] }}</td>
-                        <td>{{ class.r2["title"] }}</td>
-                        <td>{{ class.r2["description"] }}</td>
-                        <td>{{ class.r2["credits"] }}</td>
-                        <td>{{ class.r2["term"] }}</td>                        
+                        <td scope='row'>{{ class.courseID }}</td>
+                        <td>{{ class.title }}</td>
+                        <td>{{ class.description }}</td>
+                        <td>{{ class.credits }}</td>
+                        <td>{{ class.term }}</td>                        
                     </tr>
                     {% endfor %}
+
                     
                     </tbody>
                 </table>

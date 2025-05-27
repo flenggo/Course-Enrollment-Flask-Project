@@ -1,0 +1,77 @@
+You can get the original GitHub project here:
+https://github.com/siniya-johny/Course-Enrollment-Flask-Project
+(some of the packages are outdated so I already updated the requirements.txt in my GitHub forked repository
+
+
+-----------------------------------------------------------------
+how to run:
+Install Python 3.10 for the project to work.
+
+Verify Python 3.10 is Installed
+Open a Command Prompt and run:
+"py -0"
+
+Create Virtual Environment with Python 3.10
+
+If Python 3.10 is installed, run:
+
+"py -3.10 -m venv venv"
+"venv\Scripts\activate"
+
+Then run:
+"pip install -r requirements.txt"
+It should install all the necessary packages to the venv.
+
+If not, just install it manually using this:
+"pip install flask==2.2.5"
+"pip install flask-mongoengine"
+"pip install flask-wtf"
+"pip install werkzeug==2.3.7"
+
+If everything works, you can now run the flask app using:
+"flask run"
+
+-----------------------------------------------------------------
+
+
+What i want to implement:
+Add a add course function
+
+
+
+
+
+
+
+API Testing
+Header Template:
+Content-Type: application/json
+
+Create
+POST:
+URL: http://127.0.0.1:5000/api/enrollments
+Headers:
+Content-Type: application/json
+{
+    "user_id": 1,
+    "courseID": "C101"
+}
+-----------------------------------------------------------------
+Read
+GET:
+http://127.0.0.1:5000/api/enrollments
+-----------------------------------------------------------------
+Updating
+PUT:
+URL: http://127.0.0.1:5000/api/enrollments/ObjectId
+Headers:Content-Type: application/json
+{
+    "courseID": "C102" // or any other field you want to update
+}
+-----------------------------------------------------------------
+Delete
+DELETE:
+URL: http://127.0.0.1:5000/api/enrollments/ObjectId
+Expected Response: A message confirming the deletion,
+such as {"message": "Enrollment deleted"}.
+-----------------------------------------------------------------

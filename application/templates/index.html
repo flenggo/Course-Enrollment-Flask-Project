@@ -8,7 +8,7 @@
             {% if session['username'] %}
                 <h3>Let's get started.</h3>
             {% else %}
-                <p>Already registered? <a href="{{url_for('login') }}">Login</a></p>
+                <p>Already registered? <a href="{{url_for('routes.login') }}">Login</a></p>
             {% endif %}
 
             <div style="text-align:left;">

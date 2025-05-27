@@ -1,12 +1,17 @@
 from flask import Flask
 from config import Config
-from flask_mongoengine import MongoEngine
+from application.extensions import db
+from application.routes import routes
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
-db = MongoEngine()
+# Initialize extensions
 db.init_app(app)
 
-from application import routes
+# Register blueprints (order matters — do this after app/db init)
+from application.routes import routes
+from application.api import api
 
+app.register_blueprint(routes)
+app.register_blueprint(api)

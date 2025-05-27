@@ -1,20 +1,39 @@
-<header>
-    <nav>
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link {% if index %}active{% endif %}">Home</a></li>
-            <li class="nav-item"><a href="{{ url_for('courses') }}" class="nav-link {% if courses %}active{% endif %}">Classes</a></li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{{ url_for('routes.home') }}">Course Enrollment</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-            {% if not session['username'] %}
-            <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link {% if register %}active{% endif %}">Register</a></li>   
-            {% endif %}
-            <li class="nav-item"><a href="{{ url_for('enrollment') }}" class="nav-link {% if enrollment %}active{% endif %}">Enrollment</a></li> 
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a href="{{ url_for('routes.home') }}" class="nav-link {% if home %}active{% endif %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ url_for('routes.courses') }}" class="nav-link {% if courses %}active{% endif %}">Classes</a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ url_for('routes.enrollment_page') }}" class="nav-link {% if enrollment %}active{% endif %}">Enrollment</a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ url_for('routes.enroll_course') }}" class="nav-link {% if enroll %}active{% endif %}">Enroll</a>
+      </li>
 
-            {% if not session['username'] %}
-            <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link {% if login %}active{% endif %}">Login</a></li>
-            {% else %}
-            <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    <hr style="clear:both">
-</header>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('routes.login') }}">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('routes.register') }}">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('routes.user') }}">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-danger" href="{{ url_for('routes.logout') }}">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
