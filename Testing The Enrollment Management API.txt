@@ -1,7 +1,11 @@
+Beronio, Ralph Justine S.
+BSIT2-B2
+Final Hands-on Drill 
+
+=================================================================
+
 You can get the original GitHub project here:
 https://github.com/siniya-johny/Course-Enrollment-Flask-Project
-(some of the packages are outdated so I already updated the requirements.txt in my GitHub forked repository
-
 
 -----------------------------------------------------------------
 how to run:
@@ -33,45 +37,123 @@ If everything works, you can now run the flask app using:
 
 -----------------------------------------------------------------
 
+What I Added
+REST API Endpoints for enrollments:
 
-What i want to implement:
-Add a add course function
+GET /api/enrollments - List all enrollments
+
+POST /api/enrollments - Create a new enrollment
+
+GET /api/enrollments/<ObjectId> - Retrieve a specific enrollment by ID
+
+PUT /api/enrollments/<ObjectId> - Update an enrollment
+
+DELETE /api/enrollments/<ObjectId> - Delete an enrollment
+
+Proper HTTP status codes (200, 201, 400, 404, etc.)
+
+Error handling for invalid operations or missing data
+
+JSON request and response formats
+
+The API aligns with RESTful design conventions
+
+-----------------------------------------------------------------
+
+Project Structure
+The enhancement was added on a separate branch (api-course-management) based on the original project structure:
+
+Course-Enrollment-Flask-Project/
+│
+├── application/
+│   ├── models.py
+│   ├── forms.py
+│   ├── routes.py          # Enhanced with REST API endpoints for enrollments
+│   ├── templates/
+│   ├── static/
+│   └── extensions.py
+│
+├── config.py
+├── requirements.txt
+├── run.py
+└── README.md
+
+-----------------------------------------------------------------
+
+Setup and Running
+
+*Prerequisites*
+
+Python 3.7+
+
+MongoDB database (local or cloud)
+
+Virtual environment (recommended)
+
+-----------------------------------------------------------------
+
+Steps
+Clone your forked repository and switch to the enhancement branch:
+
+git clone https://github.com/flenggo/Course-Enrollment-Flask-Project.git
+cd Course-Enrollment-Flask-Project
+git checkout api-course-management
+
+-----------------------------------------------------------------
+
+Create and activate a virtual environment:
+
+python -m venv venv
+# Windows
+venv\Scripts\activate
+
+-----------------------------------------------------------------
+Install dependencies:
 
 
+pip install -r requirements.txt
+Configure your MongoDB connection if necessary in config.py.
 
+-----------------------------------------------------------------
 
+Run the application:
 
+flask run
+Access the web UI at http://127.0.0.1:5000.
 
+Access the API endpoints at http://127.0.0.1:5000/api/enrollments.
 
-API Testing
-Header Template:
+=================================================================
+
+How to Test and Use the API
+
+Get all enrollments:
+GET /api/enrollments
+
+Create a new enrollment:
+POST /api/enrollments
+Header :
 Content-Type: application/json
+Body:
+{
+  "user_id": 1,
+  "courseID": "IT6",
+  "title": "IPT",
+  "description": "Course description",
+  "credits": 30,
+  "term": "2024-2025"
+}
 
-Create
-POST:
-URL: http://127.0.0.1:5000/api/enrollments
-Headers:
+Update an enrollment:
+PUT /api/enrollments/<ObjectId>
+Header:
 Content-Type: application/json
+Body:
 {
-    "user_id": 1,
-    "courseID": "C101"
+  "title": "Updated IPT"
 }
------------------------------------------------------------------
-Read
-GET:
-http://127.0.0.1:5000/api/enrollments
------------------------------------------------------------------
-Updating
-PUT:
-URL: http://127.0.0.1:5000/api/enrollments/ObjectId
-Headers:Content-Type: application/json
-{
-    "courseID": "C102" // or any other field you want to update
-}
------------------------------------------------------------------
-Delete
-DELETE:
-URL: http://127.0.0.1:5000/api/enrollments/ObjectId
-Expected Response: A message confirming the deletion,
-such as {"message": "Enrollment deleted"}.
------------------------------------------------------------------
+
+Delete an enrollment:
+DELETE /api/enrollments/<ObjectId>
+
+=================================================================

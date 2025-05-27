@@ -1,2 +1,166 @@
 # Enrollment-for-Courses-Flask-Project
 A python based Web Application using Flask for Enrollment of courses by students login. 
+
+
+
+# Updated
+
+Beronio, Ralph Justine S.
+BSIT2-B2
+Final Hands-on Drill 
+
+=================================================================
+
+You can get the original GitHub project here:
+https://github.com/siniya-johny/Course-Enrollment-Flask-Project
+
+-----------------------------------------------------------------
+how to run:
+Install Python 3.10 for the project to work.
+
+Verify Python 3.10 is Installed
+Open a Command Prompt and run:
+"py -0"
+
+Create Virtual Environment with Python 3.10
+
+If Python 3.10 is installed, run:
+
+"py -3.10 -m venv venv"
+"venv\Scripts\activate"
+
+Then run:
+"pip install -r requirements.txt"
+It should install all the necessary packages to the venv.
+
+If not, just install it manually using this:
+"pip install flask==2.2.5"
+"pip install flask-mongoengine"
+"pip install flask-wtf"
+"pip install werkzeug==2.3.7"
+
+If everything works, you can now run the flask app using:
+"flask run"
+
+-----------------------------------------------------------------
+
+What I Added
+REST API Endpoints for enrollments:
+
+GET /api/enrollments - List all enrollments
+
+POST /api/enrollments - Create a new enrollment
+
+GET /api/enrollments/<ObjectId> - Retrieve a specific enrollment by ID
+
+PUT /api/enrollments/<ObjectId> - Update an enrollment
+
+DELETE /api/enrollments/<ObjectId> - Delete an enrollment
+
+Proper HTTP status codes (200, 201, 400, 404, etc.)
+
+Error handling for invalid operations or missing data
+
+JSON request and response formats
+
+The API aligns with RESTful design conventions
+
+-----------------------------------------------------------------
+
+Project Structure
+The enhancement was added on a separate branch (api-course-management) based on the original project structure:
+
+Course-Enrollment-Flask-Project/
+│
+├── application/
+│   ├── models.py
+│   ├── forms.py
+│   ├── routes.py          # Enhanced with REST API endpoints for enrollments
+│   ├── templates/
+│   ├── static/
+│   └── extensions.py
+│
+├── config.py
+├── requirements.txt
+├── run.py
+└── README.md
+
+-----------------------------------------------------------------
+
+Setup and Running
+
+*Prerequisites*
+
+Python 3.7+
+
+MongoDB database (local or cloud)
+
+Virtual environment (recommended)
+
+-----------------------------------------------------------------
+
+Steps
+Clone your forked repository and switch to the enhancement branch:
+
+git clone https://github.com/flenggo/Course-Enrollment-Flask-Project.git
+cd Course-Enrollment-Flask-Project
+git checkout api-course-management
+
+-----------------------------------------------------------------
+
+Create and activate a virtual environment:
+
+python -m venv venv
+# Windows
+venv\Scripts\activate
+
+-----------------------------------------------------------------
+Install dependencies:
+
+
+pip install -r requirements.txt
+Configure your MongoDB connection if necessary in config.py.
+
+-----------------------------------------------------------------
+
+Run the application:
+
+flask run
+Access the web UI at http://127.0.0.1:5000.
+
+Access the API endpoints at http://127.0.0.1:5000/api/enrollments.
+
+=================================================================
+
+How to Test and Use the API
+
+Get all enrollments:
+GET /api/enrollments
+
+Create a new enrollment:
+POST /api/enrollments
+Header :
+Content-Type: application/json
+Body:
+{
+  "user_id": 1,
+  "courseID": "IT6",
+  "title": "IPT",
+  "description": "Course description",
+  "credits": 30,
+  "term": "2024-2025"
+}
+
+Update an enrollment:
+PUT /api/enrollments/<ObjectId>
+Header:
+Content-Type: application/json
+Body:
+{
+  "title": "Updated IPT"
+}
+
+Delete an enrollment:
+DELETE /api/enrollments/<ObjectId>
+
+=================================================================
