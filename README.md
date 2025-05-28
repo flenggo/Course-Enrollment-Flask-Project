@@ -1,166 +1,133 @@
-# Enrollment-for-Courses-Flask-Project
-A python based Web Application using Flask for Enrollment of courses by students login. 
+Enrollment-for-Courses-Flask-Project
 
+A Python-based web application using Flask for student login and course enrollment.
 
+--------------------------------------------------------------------------------------------
 
-# Updated
+👨‍💻 Updated by:  
+**Beronio, Ralph Justine S.**  
+BSIT2-B2 – Final Hands-on Drill
 
-Beronio, Ralph Justine S.
-BSIT2-B2
-Final Hands-on Drill 
+--------------------------------------------------------------------------------------------
 
-=================================================================
+### 📌 Original Project Source  
+GitHub: [https://github.com/siniya-johny/Course-Enrollment-Flask-Project](https://github.com/siniya-johny/Course-Enrollment-Flask-Project)
 
-You can get the original GitHub project here:
-https://github.com/siniya-johny/Course-Enrollment-Flask-Project
+--------------------------------------------------------------------------------------------
 
------------------------------------------------------------------
-how to run:
-Install Python 3.10 for the project to work.
+⚙️ How to Run
 
-Verify Python 3.10 is Installed
-Open a Command Prompt and run:
-"py -0"
+> 🐍 Requires **Python 3.10**
 
-Create Virtual Environment with Python 3.10
+✅ Step-by-Step Setup
 
-If Python 3.10 is installed, run:
+1. **Verify Python 3.10 is installed**
 
-"py -3.10 -m venv venv"
-"venv\Scripts\activate"
+py -0
+Create a virtual environment
 
-Then run:
-"pip install -r requirements.txt"
-It should install all the necessary packages to the venv.
+py -3.10 -m venv venv
+venv\Scripts\activate
+Install dependencies
 
-If not, just install it manually using this:
-"pip install flask==2.2.5"
-"pip install flask-mongoengine"
-"pip install flask-wtf"
-"pip install werkzeug==2.3.7"
+pip install -r requirements.txt
+If that fails, manually install:
 
-If everything works, you can now run the flask app using:
-"flask run"
+pip install flask==2.2.5
+pip install flask-mongoengine
+pip install flask-wtf
+pip install werkzeug==2.3.7
+pip install flasgger
+Run the app
 
------------------------------------------------------------------
+flask run
 
-What I Added
-REST API Endpoints for enrollments:
+🌐 Access
+Web Interface: http://127.0.0.1:5000/
+Swagger API Docs: http://127.0.0.1:5000/apidocs
 
-GET /api/enrollments - List all enrollments
+--------------------------------------------------------------------------------------------
 
-POST /api/enrollments - Create a new enrollment
+✅ What I Added
+🔗 REST API Endpoints for Enrollments:
+Method	Endpoint	Description
+GET	/api/enrollments	List all enrollments
+POST	/api/enrollments	Create a new enrollment
+GET	/api/enrollments/<id>	Get enrollment by ID
+PUT	/api/enrollments/<id>	Update an enrollment
+DELETE	/api/enrollments/<id>	Delete an enrollment
 
-GET /api/enrollments/<ObjectId> - Retrieve a specific enrollment by ID
+✔️ Proper HTTP Status Codes
+✔️ JSON Request/Response
+✔️ RESTful structure
+✔️ Full Swagger/OpenAPI docs via /apidocs
 
-PUT /api/enrollments/<ObjectId> - Update an enrollment
+--------------------------------------------------------------------------------------------
 
-DELETE /api/enrollments/<ObjectId> - Delete an enrollment
-
-Proper HTTP status codes (200, 201, 400, 404, etc.)
-
-Error handling for invalid operations or missing data
-
-JSON request and response formats
-
-The API aligns with RESTful design conventions
-
------------------------------------------------------------------
-
-Project Structure
-The enhancement was added on a separate branch (api-course-management) based on the original project structure:
-
+📁 Project Structure
 Course-Enrollment-Flask-Project/
 │
 ├── application/
+│   ├── __init__.py
+│   ├── api.py                # New: Enrollment API endpoints
+│   ├── routes.py             # Flask routes (frontend)
 │   ├── models.py
 │   ├── forms.py
-│   ├── routes.py          # Enhanced with REST API endpoints for enrollments
 │   ├── templates/
 │   ├── static/
 │   └── extensions.py
 │
+├── main.py
 ├── config.py
 ├── requirements.txt
-├── run.py
+├── test_enrollment.py        # New: Unit tests for API
 └── README.md
 
------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
-Setup and Running
+🧪 How to Test and Use the API
 
-*Prerequisites*
-
-Python 3.7+
-
-MongoDB database (local or cloud)
-
-Virtual environment (recommended)
-
------------------------------------------------------------------
-
-Steps
-Clone your forked repository and switch to the enhancement branch:
-
-git clone https://github.com/flenggo/Course-Enrollment-Flask-Project.git
-cd Course-Enrollment-Flask-Project
-git checkout api-course-management
-
------------------------------------------------------------------
-
-Create and activate a virtual environment:
-
-python -m venv venv
-# Windows
-venv\Scripts\activate
-
------------------------------------------------------------------
-Install dependencies:
-
-
-pip install -r requirements.txt
-Configure your MongoDB connection if necessary in config.py.
-
------------------------------------------------------------------
-
-Run the application:
-
-flask run
-Access the web UI at http://127.0.0.1:5000.
-
-Access the API endpoints at http://127.0.0.1:5000/api/enrollments.
-
-=================================================================
-
-How to Test and Use the API
-
-Get all enrollments:
+✔️ Get all enrollments
 GET /api/enrollments
 
-Create a new enrollment:
+✔️ Create a new enrollment
 POST /api/enrollments
-Header :
-Content-Type: application/json
-Body:
-{
-  "user_id": 1,
-  "courseID": "IT6",
-  "title": "IPT",
-  "description": "Course description",
-  "credits": 30,
-  "term": "2024-2025"
-}
-
-Update an enrollment:
-PUT /api/enrollments/<ObjectId>
 Header:
 Content-Type: application/json
 Body:
 {
-  "title": "Updated IPT"
+  "user_id": 1,
+  "courseID": "IT6"
 }
 
-Delete an enrollment:
+✔️ Update an enrollment
+Edit
+PUT /api/enrollments/<ObjectId>
+Header:
+Content-Type: application/json
+Body
+{
+  "courseID": "CS104"
+}
+
+✔️ Delete an enrollment
 DELETE /api/enrollments/<ObjectId>
 
-=================================================================
+--------------------------------------------------------------------------------------------
+
+🧪 Unit Testing
+Written using pytest
+Includes positive and negative test cases
+Covers all CRUD operations on /api/enrollments
+
+To run:
+pytest test_enrollment.py
+✅ All 7 tests should pass.
+
+--------------------------------------------------------------------------------------------
+
+📤 Branch Info
+All updates were pushed to a separate branch:
+-swagger-docs-
+
+--------------------------------------------------------------------------------------------
