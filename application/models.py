@@ -43,6 +43,7 @@ class Enrollment(db.Document):
 
     def serialize(self):
         return {
+            'id': str(self.id),  # ✅ Add this line
             'user_id': self.user_id,
             'courseID': self.courseID,
             'title': self.title,
