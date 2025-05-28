@@ -13,9 +13,12 @@ BSIT2-B2 – Final Hands-on Drill
 ### 📌 Original Project Source  
 GitHub: [https://github.com/siniya-johny/Course-Enrollment-Flask-Project](https://github.com/siniya-johny/Course-Enrollment-Flask-Project)
 
+### My updated Version
+GitHub: [https://github.com/flenggo/Course-Enrollment-Flask-Project]
+
 --------------------------------------------------------------------------------------------
 
-⚙️ How to Run
+⚙️ How to Run my updated Version
 
 > 🐍 Requires **Python 3.10**
 
@@ -28,6 +31,7 @@ Create a virtual environment
 
 py -3.10 -m venv venv
 venv\Scripts\activate
+
 Install dependencies
 
 pip install -r requirements.txt
